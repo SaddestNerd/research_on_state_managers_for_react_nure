@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom'
 import { ConfigProvider } from 'antd'
 import ruRU from 'antd/locale/ru_RU'
-import { AuthProvider, ProductsProvider } from './app/store/providers'
+import { AuthProvider, ProductsProvider, CartProvider } from './app/context'
 import './App.css'
 
 import './app/performance/reportScheduler'
@@ -68,9 +68,11 @@ function App() {
 		<ConfigProvider locale={ruRU}>
 			<AuthProvider>
 				<ProductsProvider>
-					<Router>
-						<AppContent />
-					</Router>
+					<CartProvider>
+						<Router>
+							<AppContent />
+						</Router>
+					</CartProvider>
 				</ProductsProvider>
 			</AuthProvider>
 		</ConfigProvider>

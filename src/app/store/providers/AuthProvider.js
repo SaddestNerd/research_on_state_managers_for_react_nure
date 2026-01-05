@@ -10,10 +10,6 @@ export const AuthProvider = ({ children }) => {
 	const pendingOperationsRef = useRef(new Map())
 
 	useEffect(() => {
-		send({ type: 'CHECK_TOKEN' })
-	}, [send])
-
-	useEffect(() => {
 		const token = TokenService.getLocalAccessToken()
 		if (!token && state.value === 'authenticated') {
 			send({ type: 'CHECK_TOKEN' })

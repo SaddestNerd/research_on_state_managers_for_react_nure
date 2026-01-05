@@ -499,48 +499,5 @@ class XStateBenchmarks {
 
 export const xstateBenchmarks = new XStateBenchmarks()
 
-if (typeof window !== 'undefined') {
-	window.xstateBenchmarks = xstateBenchmarks
-	window.runXStateBenchmarks = () => xstateBenchmarks.runAllBenchmarks()
-	window.exportXStateBenchmarks = () =>
-		xstateBenchmarks.exportResults(window.lastBenchmarkResults)
-
-	console.log(`
-╔═══════════════════════════════════════════════════════════╗
-║  🔬 ТЕСТИ ПРОДУКТИВНОСТІ XSTATE                           ║
-╚═══════════════════════════════════════════════════════════╝
-
-Доступні команди:
-
-  🔹 window.runXStateBenchmarks()
-     Запустити всі тести продуктивності xState
-
-  🔹 window.xstateBenchmarks.testStateUpdateTime_AddToCart(100)
-     Тест часу оновлення стану - додавання в кошик
-
-  🔹 window.xstateBenchmarks.testStateUpdateTime_MassUpdate(1000)
-     Тест масового оновлення (1000 операцій)
-
-  🔹 window.xstateBenchmarks.testMemoryUsage_StandardSession(60000)
-     Тест споживання пам'яті - стандартна сесія (1 хв)
-
-  🔹 window.xstateBenchmarks.testMemoryUsage_LongLoad(300000)
-     Тест тривалого навантаження (5 хв)
-
-  🔹 window.xstateBenchmarks.testPersistence_Recovery(100)
-     Тест відновлення з persisted store
-
-  🔹 window.xstateBenchmarks.testRollback_Time(100)
-     Тест часу відкату
-
-  🔹 window.xstateBenchmarks.testConflicts_ParallelTabs(50)
-     Тест конфліктів при паралельних вкладках
-
-  🔹 window.xstateBenchmarks.testThroughput(10000)
-     Тест пропускної здатності (10 сек)
-
-═══════════════════════════════════════════════════════════
-  `)
-}
 
 export default XStateBenchmarks
