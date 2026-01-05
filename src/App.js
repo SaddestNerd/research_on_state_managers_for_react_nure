@@ -88,7 +88,7 @@ function AppContent() {
 				<Route
 					path='/dashboard'
 					element={
-						<PublicRoute
+						<PrivateRoute
 							element={<AccountHeaderFooter element={<DashboardPage />} />}
 						/>
 					}
