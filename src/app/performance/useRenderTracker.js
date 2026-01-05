@@ -10,7 +10,7 @@ export const useRenderTracker = componentName => {
 
 		if (process.env.NODE_ENV === 'development') {
 			console.log(
-				`[Render Tracker] ${componentName} rendered ${renderCount.current} times`
+				`[Render Tracker] ${componentName} відрендерено ${renderCount.current} разів`
 			)
 		}
 	})
@@ -26,9 +26,9 @@ export const useRenderPerformance = componentName => {
 
 		if (process.env.NODE_ENV === 'development') {
 			console.log(
-				`[Render Performance] ${componentName} took ${renderTime.toFixed(
+				`[Render Performance] ${componentName} витратив ${renderTime.toFixed(
 					3
-				)}ms to render`
+				)}мс на рендер`
 			)
 		}
 

@@ -190,85 +190,85 @@ class PerformanceMetrics {
 
 		console.log('\n')
 		console.log('═══════════════════════════════════════════════════════════')
-		console.log(`📊 ОТЧЕТ ПО ПРОИЗВОДИТЕЛЬНОСТИ: ${this.stateManagerName}`)
+		console.log(`📊 ЗВІТ ПРО ПРОДУКТИВНІСТЬ: ${this.stateManagerName}`)
 		console.log('═══════════════════════════════════════════════════════════')
 		console.log('\n')
 
-		console.log('🎯 1. ПРОИЗВОДИТЕЛЬНОСТЬ ДЕЙСТВИЙ (Actions/Dispatch)')
+		console.log('🎯 1. ПРОДУКТИВНІСТЬ ДІЙ (Actions/Dispatch)')
 		console.log('───────────────────────────────────────────────────────────')
-		console.log(`   Количество измерений: ${report.actions.stats.count}`)
+		console.log(`   Кількість вимірювань: ${report.actions.stats.count}`)
 		console.log(
-			`   Минимальное время: ${report.actions.stats.min.toFixed(3)} мс`
+			`   Мінімальний час: ${report.actions.stats.min.toFixed(3)} мс`
 		)
 		console.log(
-			`   Максимальное время: ${report.actions.stats.max.toFixed(3)} мс`
+			`   Максимальний час: ${report.actions.stats.max.toFixed(3)} мс`
 		)
-		console.log(`   Среднее время: ${report.actions.stats.avg.toFixed(3)} мс`)
+		console.log(`   Середній час: ${report.actions.stats.avg.toFixed(3)} мс`)
 		console.log(
-			`   Медианное время: ${report.actions.stats.median.toFixed(3)} мс`
+			`   Медіанний час: ${report.actions.stats.median.toFixed(3)} мс`
 		)
 		console.log('\n')
 
-		console.log('🔄 2. КОЛИЧЕСТВО РЕ-РЕНДЕРОВ КОМПОНЕНТОВ')
+		console.log('🔄 2. КІЛЬКІСТЬ РЕ-РЕНДЕРІВ КОМПОНЕНТІВ')
 		console.log('───────────────────────────────────────────────────────────')
-		console.log(`   Всего ре-рендеров: ${report.rerenders.totalRerenders}`)
-		console.log('   По компонентам:')
+		console.log(`   Всього ре-рендерів: ${report.rerenders.totalRerenders}`)
+		console.log('   За компонентами:')
 		Object.entries(report.rerenders.byComponent).forEach(([comp, count]) => {
-			console.log(`      - ${comp}: ${count} раз(а)`)
+			console.log(`      - ${comp}: ${count} раз(ів)`)
 		})
 		console.log('\n')
 
-		console.log('⚡ 3. СКОРОСТЬ ОБНОВЛЕНИЯ СОСТОЯНИЯ')
+		console.log('⚡ 3. ШВИДКІСТЬ ОНОВЛЕННЯ СТАНУ')
 		console.log('───────────────────────────────────────────────────────────')
-		console.log(`   Количество измерений: ${report.stateUpdates.stats.count}`)
+		console.log(`   Кількість вимірювань: ${report.stateUpdates.stats.count}`)
 		console.log(
-			`   Минимальное время: ${report.stateUpdates.stats.min.toFixed(3)} мс`
+			`   Мінімальний час: ${report.stateUpdates.stats.min.toFixed(3)} мс`
 		)
 		console.log(
-			`   Максимальное время: ${report.stateUpdates.stats.max.toFixed(3)} мс`
+			`   Максимальний час: ${report.stateUpdates.stats.max.toFixed(3)} мс`
 		)
 		console.log(
-			`   Среднее время: ${report.stateUpdates.stats.avg.toFixed(3)} мс`
+			`   Середній час: ${report.stateUpdates.stats.avg.toFixed(3)} мс`
 		)
 		console.log(
-			`   Медианное время: ${report.stateUpdates.stats.median.toFixed(3)} мс`
+			`   Медіанний час: ${report.stateUpdates.stats.median.toFixed(3)} мс`
 		)
 		console.log('\n')
 
-		console.log('🎯 4. ПРОИЗВОДИТЕЛЬНОСТЬ СЕЛЕКТОРОВ')
+		console.log('🎯 4. ПРОДУКТИВНІСТЬ СЕЛЕКТОРІВ')
 		console.log('───────────────────────────────────────────────────────────')
-		console.log(`   Количество измерений: ${report.selectors.stats.count}`)
+		console.log(`   Кількість вимірювань: ${report.selectors.stats.count}`)
 		console.log(
-			`   Минимальное время: ${report.selectors.stats.min.toFixed(3)} мс`
+			`   Мінімальний час: ${report.selectors.stats.min.toFixed(3)} мс`
 		)
 		console.log(
-			`   Максимальное время: ${report.selectors.stats.max.toFixed(3)} мс`
+			`   Максимальний час: ${report.selectors.stats.max.toFixed(3)} мс`
 		)
-		console.log(`   Среднее время: ${report.selectors.stats.avg.toFixed(3)} мс`)
+		console.log(`   Середній час: ${report.selectors.stats.avg.toFixed(3)} мс`)
 		console.log(
-			`   Медианное время: ${report.selectors.stats.median.toFixed(3)} мс`
+			`   Медіанний час: ${report.selectors.stats.median.toFixed(3)} мс`
 		)
 		console.log('\n')
 
 		if (report.memory.latest) {
-			console.log('💾 5. ИСПОЛЬЗОВАНИЕ ПАМЯТИ')
+			console.log('💾 5. ВИКОРИСТАННЯ ПАМ\'ЯТІ')
 			console.log('───────────────────────────────────────────────────────────')
 			console.log(
-				`   Используется: ${(
+				`   Використовується: ${(
 					report.memory.latest.usedJSHeapSize /
 					1024 /
 					1024
 				).toFixed(2)} МБ`
 			)
 			console.log(
-				`   Всего выделено: ${(
+				`   Всього виділено: ${(
 					report.memory.latest.totalJSHeapSize /
 					1024 /
 					1024
 				).toFixed(2)} МБ`
 			)
 			console.log(
-				`   Лимит: ${(
+				`   Ліміт: ${(
 					report.memory.latest.jsHeapSizeLimit /
 					1024 /
 					1024
@@ -278,10 +278,10 @@ class PerformanceMetrics {
 		}
 
 		if (report.stateSize.latest) {
-			console.log('📦 6. РАЗМЕР СОСТОЯНИЯ (State Size)')
+			console.log('📦 6. РОЗМІР СТАНУ (State Size)')
 			console.log('───────────────────────────────────────────────────────────')
 			console.log(
-				`   Размер: ${
+				`   Розмір: ${
 					report.stateSize.latest.sizeInBytes
 				} байт (${report.stateSize.latest.sizeInKB.toFixed(2)} КБ)`
 			)
@@ -289,15 +289,15 @@ class PerformanceMetrics {
 		}
 
 		if (report.storeInitTime) {
-			console.log('🚀 7. ВРЕМЯ ИНИЦИАЛИЗАЦИИ STORE')
+			console.log('🚀 7. ЧАС ІНІЦІАЛІЗАЦІЇ STORE')
 			console.log('───────────────────────────────────────────────────────────')
-			console.log(`   Время: ${report.storeInitTime.toFixed(3)} мс`)
+			console.log(`   Час: ${report.storeInitTime.toFixed(3)} мс`)
 			console.log('\n')
 		}
 
-		console.log('👥 8. КОЛИЧЕСТВО ПОДПИСЧИКОВ (Subscribers)')
+		console.log('👥 8. КІЛЬКІСТЬ ПІДПИСНИКІВ (Subscribers)')
 		console.log('───────────────────────────────────────────────────────────')
-		console.log(`   Количество: ${report.subscribersCount}`)
+		console.log(`   Кількість: ${report.subscribersCount}`)
 		console.log('\n')
 
 		console.log('═══════════════════════════════════════════════════════════')

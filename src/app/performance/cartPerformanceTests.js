@@ -690,40 +690,6 @@ if (typeof window !== 'undefined') {
 
 	window.exportCartResults = () => cartPerformanceTests.exportResults()
 
-	console.log(`
-╔═══════════════════════════════════════════════════════════╗
-║  🧪 ТЕСТИ REDUX КОРЗИНИ - ДОСТУПНІ В КОНСОЛІ           ║
-╚═══════════════════════════════════════════════════════════╝
-
-🎯 ГОЛОВНА КОМАНДА (запускає всі 5 тестів):
-
-  window.runCartTests()
-     Запустити всі тести продуктивності корзини
-
-📊 Окремі тести:
-
-  window.testStateUpdateTime()
-     Тест 1: Час оновлення стану (ms) — Додавання в кошик
-
-  window.testRerenderFrequency()
-     Тест 2: Частота ререндерингів (на 1 дію)
-
-  window.testMemoryConsumption()
-     Тест 3: Споживання пам'яті (JS heap) — середнє / пік (MB)
-
-  window.testThroughputAndScalability()
-     Тест 4: Пропускна здатність / масштабованість
-
-  window.testStabilityRecoveryPersistence()
-     Тест 5: Стійкість / відновлюваність / персистентність
-
-💾 Експорт результатів:
-
-  window.exportCartResults()
-     Експортувати результати в JSON файл
-
-═══════════════════════════════════════════════════════════
-  `)
 }
 
 export default CartPerformanceTests

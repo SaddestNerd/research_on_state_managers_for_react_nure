@@ -9,7 +9,7 @@ class PerformanceDemo {
 
 	async runFullDemo() {
 		if (this.isRunning) {
-			console.warn('⚠️ Демонстрация уже запущена')
+			console.warn('⚠️ Демонстрація вже запущена')
 			return
 		}
 
@@ -19,7 +19,7 @@ class PerformanceDemo {
 		console.log('\n\n')
 		console.log('╔═══════════════════════════════════════════════════════════╗')
 		console.log('║                                                           ║')
-		console.log('║     🎬 ДЕМОНСТРАЦИЯ СИСТЕМЫ ИЗМЕРЕНИЯ ПРОИЗВОДИТЕЛЬНОСТИ  ║')
+		console.log('║     🎬 ДЕМОНСТРАЦІЯ СИСТЕМИ ВИМІРЮВАННЯ ПРОДУКТИВНОСТІ  ║')
 		console.log('║                                                           ║')
 		console.log('╚═══════════════════════════════════════════════════════════╝')
 		console.log('\n')
@@ -43,11 +43,11 @@ class PerformanceDemo {
 		console.log('\n')
 		console.log('╔═══════════════════════════════════════════════════════════╗')
 		console.log('║                                                           ║')
-		console.log('║        ✅ ДЕМОНСТРАЦИЯ ЗАВЕРШЕНА!                         ║')
+		console.log('║        ✅ ДЕМОНСТРАЦІЯ ЗАВЕРШЕНА!                         ║')
 		console.log('║                                                           ║')
 		console.log('╚═══════════════════════════════════════════════════════════╝')
 		console.log('\n')
-		console.log('💡 Теперь вы можете использовать команды самостоятельно:')
+		console.log('💡 Тепер ви можете використовувати команди самостійно:')
 		console.log('   - window.getPerformanceReport()')
 		console.log('   - window.runPerformanceTest()')
 		console.log('   - window.exportPerformanceResults()')
@@ -57,71 +57,71 @@ class PerformanceDemo {
 
 	async step1_InitialState() {
 		console.log('═══════════════════════════════════════════════════════════')
-		console.log('📍 ШАГ 1: Начальное состояние системы')
+		console.log('📍 КРОК 1: Початковий стан системи')
 		console.log('═══════════════════════════════════════════════════════════')
 		console.log('\n')
 
 		const report = reduxMetrics.getReport()
 
 		console.log(
-			`🚀 Время инициализации Redux Store: ${
+			`🚀 Час ініціалізації Redux Store: ${
 				report.storeInitTime?.toFixed(3) || 'N/A'
 			} мс`
 		)
 		console.log(
-			`📦 Начальный размер состояния: ${
+			`📦 Початковий розмір стану: ${
 				report.stateSize.latest?.sizeInKB.toFixed(2) || 'N/A'
 			} КБ`
 		)
 		console.log(
-			`💾 Использование памяти: ${
+			`💾 Використання пам'яті: ${
 				report.memory.latest
 					? (report.memory.latest.usedJSHeapSize / 1024 / 1024).toFixed(2)
 					: 'N/A'
 			} МБ`
 		)
 		console.log(
-			`📊 Количество измерений действий: ${report.actions.stats.count}`
+			`📊 Кількість вимірювань дій: ${report.actions.stats.count}`
 		)
 
-		console.log('\n✅ Система готова к работе!\n')
+		console.log('\n✅ Система готова до роботи!\n')
 
 		await this.wait(2000)
 	}
 
 	async step2_SimulateActions() {
 		console.log('═══════════════════════════════════════════════════════════')
-		console.log('📍 ШАГ 2: Симуляция действий (actions)')
+		console.log('📍 КРОК 2: Симуляція дій (actions)')
 		console.log('═══════════════════════════════════════════════════════════')
 		console.log('\n')
-		console.log('⏳ Выполняем 20 действий с задержкой...\n')
+		console.log('⏳ Виконуємо 20 дій із затримкою...\n')
 
 		await performanceTester.simulateActions(20)
 
-		console.log('\n✅ Действия выполнены!\n')
+		console.log('\n✅ Дії виконано!\n')
 
 		await this.wait(2000)
 	}
 
 	async step3_ShowReport() {
 		console.log('═══════════════════════════════════════════════════════════')
-		console.log('📍 ШАГ 3: Промежуточный отчет')
+		console.log('📍 КРОК 3: Проміжний звіт')
 		console.log('═══════════════════════════════════════════════════════════')
 		console.log('\n')
 
 		const report = reduxMetrics.getReport()
 
-		console.log('📊 Статистика после 20 действий:')
+		console.log('📊 Статистика після 20 дій:')
 		console.log('───────────────────────────────────────────────────────────')
-		console.log(`   Количество измерений: ${report.actions.stats.count}`)
-		console.log(`   Среднее время: ${report.actions.stats.avg.toFixed(3)} мс`)
+		console.log(`   Кількість вимірювань: ${report.actions.stats.count}`)
+		console.log(`   Середній час: ${report.actions.stats.avg.toFixed(3)} мс`)
 		console.log(
-			`   Мин/Макс: ${report.actions.stats.min.toFixed(
+			`   Мін/Макс: ${report.actions.stats.min.toFixed(
 				3
 			)} / ${report.actions.stats.max.toFixed(3)} мс`
 		)
 		console.log(
-			`   Общее количество ре-рендеров: ${report.rerenders.totalRerenders}`
+			`   Загальна кількість ре-рендерів: ${report.rerenders.totalRerenders}`
 		)
 
 		console.log('\n')
@@ -131,21 +131,21 @@ class PerformanceDemo {
 
 	async step4_StressTest() {
 		console.log('═══════════════════════════════════════════════════════════')
-		console.log('📍 ШАГ 4: Стресс-тест (1000 быстрых действий)')
+		console.log('📍 КРОК 4: Стрес-тест (1000 швидких дій)')
 		console.log('═══════════════════════════════════════════════════════════')
 		console.log('\n')
-		console.log('⚡ Запускаем стресс-тест...\n')
+		console.log('⚡ Запускаємо стрес-тест...\n')
 
 		const stressResults = await performanceTester.stressTest(1000)
 
-		console.log('\n📊 Результаты стресс-теста:')
+		console.log('\n📊 Результати стрес-тесту:')
 		console.log('───────────────────────────────────────────────────────────')
-		console.log(`   Общее время: ${stressResults.totalTime.toFixed(2)} мс`)
+		console.log(`   Загальний час: ${stressResults.totalTime.toFixed(2)} мс`)
 		console.log(
-			`   Среднее время на действие: ${stressResults.averageTime.toFixed(3)} мс`
+			`   Середній час на дію: ${stressResults.averageTime.toFixed(3)} мс`
 		)
 		console.log(
-			`   Действий в секунду: ${stressResults.actionsPerSecond.toFixed(0)}`
+			`   Дій на секунду: ${stressResults.actionsPerSecond.toFixed(0)}`
 		)
 
 		console.log('\n')
@@ -155,29 +155,29 @@ class PerformanceDemo {
 
 	async step5_MemoryTest() {
 		console.log('═══════════════════════════════════════════════════════════')
-		console.log('📍 ШАГ 5: Тест использования памяти')
+		console.log('📍 КРОК 5: Тест використання пам\'яті')
 		console.log('═══════════════════════════════════════════════════════════')
 		console.log('\n')
-		console.log('💾 Проверяем использование памяти...\n')
+		console.log('💾 Перевіряємо використання пам\'яті...\n')
 
 		const memoryResults = await performanceTester.memoryTest()
 
-		console.log('\n📊 Результаты теста памяти:')
+		console.log('\n📊 Результати тесту пам\'яті:')
 		console.log('───────────────────────────────────────────────────────────')
 		console.log(
-			`   Память до: ${(memoryResults.memoryBefore / 1024 / 1024).toFixed(
+			`   Пам'ять до: ${(memoryResults.memoryBefore / 1024 / 1024).toFixed(
 				2
 			)} МБ`
 		)
 		console.log(
-			`   Память после: ${(memoryResults.memoryAfter / 1024 / 1024).toFixed(
+			`   Пам'ять після: ${(memoryResults.memoryAfter / 1024 / 1024).toFixed(
 				2
 			)} МБ`
 		)
 		console.log(
-			`   Разница: ${(memoryResults.memoryDiff / 1024 / 1024).toFixed(2)} МБ`
+			`   Різниця: ${(memoryResults.memoryDiff / 1024 / 1024).toFixed(2)} МБ`
 		)
-		console.log(`   Размер состояния: ${memoryResults.stateSize.toFixed(2)} КБ`)
+		console.log(`   Розмір стану: ${memoryResults.stateSize.toFixed(2)} КБ`)
 
 		console.log('\n')
 
@@ -186,7 +186,7 @@ class PerformanceDemo {
 
 	async step6_FinalReport() {
 		console.log('═══════════════════════════════════════════════════════════')
-		console.log('📍 ШАГ 6: Финальный отчет по всем метрикам')
+		console.log('📍 КРОК 6: Фінальний звіт за всіма метриками')
 		console.log('═══════════════════════════════════════════════════════════')
 		console.log('\n')
 
@@ -197,26 +197,24 @@ class PerformanceDemo {
 
 	async step7_Export() {
 		console.log('═══════════════════════════════════════════════════════════')
-		console.log('📍 ШАГ 7: Экспорт результатов')
+		console.log('📍 КРОК 7: Експорт результатів')
 		console.log('═══════════════════════════════════════════════════════════')
 		console.log('\n')
-		console.log('📄 JSON данные для дипломной работы:')
-		console.log('───────────────────────────────────────────────────────────')
 
 		const json = reduxMetrics.exportToJSON()
 		const preview = JSON.parse(json)
 
-		console.log('\nОсновные метрики:')
+		console.log('\nОсновні метрики:')
 		console.log(`  - State Manager: ${preview.stateManager}`)
 		console.log(
-			`  - Время инициализации: ${preview.storeInitTime.toFixed(3)} мс`
+			`  - Час ініціалізації: ${preview.storeInitTime.toFixed(3)} мс`
 		)
 		console.log(
-			`  - Среднее время action: ${preview.actions.stats.avg.toFixed(3)} мс`
+			`  - Середній час action: ${preview.actions.stats.avg.toFixed(3)} мс`
 		)
-		console.log(`  - Всего ре-рендеров: ${preview.rerenders.totalRerenders}`)
+		console.log(`  - Всього ре-рендерів: ${preview.rerenders.totalRerenders}`)
 		console.log(
-			`  - Память: ${
+			`  - Пам'ять: ${
 				preview.memory.latest
 					? (preview.memory.latest.usedJSHeapSize / 1024 / 1024).toFixed(2)
 					: 'N/A'
@@ -224,7 +222,7 @@ class PerformanceDemo {
 		)
 
 		console.log(
-			'\n💡 Используйте window.exportPerformanceResults() для скачивания JSON файла'
+			'\n💡 Використовуйте window.exportPerformanceResults() для завантаження JSON файлу'
 		)
 
 		console.log('\n')
@@ -238,15 +236,15 @@ class PerformanceDemo {
 
 	async quickDemo() {
 		console.clear()
-		console.log('\n🎬 БЫСТРАЯ ДЕМОНСТРАЦИЯ\n')
+		console.log('\n🎬 ШВИДКА ДЕМОНСТРАЦІЯ\n')
 
-		console.log('1️⃣ Текущий отчет:')
+		console.log('1️⃣ Поточний звіт:')
 		reduxMetrics.printReport()
 
-		console.log('\n2️⃣ Запуск теста производительности:')
+		console.log('\n2️⃣ Запуск тесту продуктивності:')
 		await performanceTester.runFullTest()
 
-		console.log('\n✅ Быстрая демонстрация завершена!')
+		console.log('\n✅ Швидка демонстрація завершена!')
 	}
 }
 
@@ -260,23 +258,23 @@ if (typeof window !== 'undefined') {
 	console.log(`
 ╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
-║     🎬 ДЕМОНСТРАЦИЯ ДОСТУПНА!                            ║
+║     🎬 ДЕМОНСТРАЦІЯ ДОСТУПНА!                            ║
 ║                                                           ║
 ╚═══════════════════════════════════════════════════════════╝
 
-  🎥 Полная демонстрация (с задержками):
+  🎥 Повна демонстрація (з затримками):
      window.runFullDemo()
      
-  ⚡ Быстрая демонстрация (без задержек):
+  ⚡ Швидка демонстрація (без затримок):
      window.runQuickDemo()
 
-Демонстрация покажет работу всех утилит:
-  ✅ Измерение времени инициализации
-  ✅ Симуляция действий
-  ✅ Стресс-тест
-  ✅ Тест памяти
-  ✅ Генерация отчетов
-  ✅ Экспорт данных
+Демонстрація покаже роботу всіх утиліт:
+  ✅ Вимірювання часу ініціалізації
+  ✅ Симуляція дій
+  ✅ Стрес-тест
+  ✅ Тест пам'яті
+  ✅ Генерація звітів
+  ✅ Експорт даних
 
 ═══════════════════════════════════════════════════════════
   `)

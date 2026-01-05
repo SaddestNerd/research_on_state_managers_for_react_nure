@@ -19,9 +19,9 @@ export const performanceMiddleware = store => next => action => {
 
 	if (process.env.NODE_ENV === 'development') {
 		console.log(
-			`[Redux Performance] Action: ${action.type}, Time: ${actionTime.toFixed(
+			`[Redux Performance] Дія: ${action.type}, Час: ${actionTime.toFixed(
 				3
-			)}ms`
+			)}мс`
 		)
 	}
 

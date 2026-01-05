@@ -8,17 +8,17 @@ class ReportScheduler {
 
 	start(intervalMs = 30000) {
 		if (this.isRunning) {
-			console.warn('⚠️ Планировщик отчетов уже запущен')
+			console.warn('⚠️ Планувальник звітів вже запущено')
 			return
 		}
 
 		console.log(
-			`✅ Планировщик отчетов запущен (интервал: ${intervalMs / 1000} сек)`
+			`✅ Планувальник звітів запущено (інтервал: ${intervalMs / 1000} сек)`
 		)
 
 		this.isRunning = true
 		this.intervalId = setInterval(() => {
-			console.log('\n🔔 Автоматический отчет о производительности:')
+			console.log('\n🔔 Автоматичний звіт про продуктивність:')
 			reduxMetrics.printReport()
 		}, intervalMs)
 	}
@@ -28,12 +28,12 @@ class ReportScheduler {
 			clearInterval(this.intervalId)
 			this.intervalId = null
 			this.isRunning = false
-			console.log('⏹️ Планировщик отчетов остановлен')
+			console.log('⏹️ Планувальник звітів зупинено')
 		}
 	}
 
 	getReportNow() {
-		console.log('\n📊 Текущий отчет о производительности:')
+		console.log('\n📊 Поточний звіт про продуктивність:')
 		return reduxMetrics.printReport()
 	}
 }
@@ -49,24 +49,24 @@ if (typeof window !== 'undefined') {
 
 	console.log(`
 ═══════════════════════════════════════════════════════════
-📊 СИСТЕМА ИЗМЕРЕНИЯ ПРОИЗВОДИТЕЛЬНОСТИ АКТИВИРОВАНА
+📊 СИСТЕМА ВИМІРЮВАННЯ ПРОДУКТИВНОСТІ АКТИВОВАНО
 ═══════════════════════════════════════════════════════════
 
-Доступные команды в консоли:
+Доступні команди в консолі:
 
   🔹 window.getPerformanceReport()
-     Получить текущий отчет о производительности Redux
+     Отримати поточний звіт про продуктивність Redux
 
   🔹 window.startPerformanceReports(interval)
-     Запустить автоматический вывод отчетов
-     interval - интервал в миллисекундах (по умолчанию 30000)
-     Пример: window.startPerformanceReports(10000) 
+     Запустити автоматичний вивід звітів
+     interval - інтервал у мілісекундах (за замовчуванням 30000)
+     Приклад: window.startPerformanceReports(10000) 
 
   🔹 window.stopPerformanceReports()
-     Остановить автоматический вывод отчетов
+     Зупинити автоматичний вивід звітів
 
   🔹 window.reduxMetrics
-     Прямой доступ к объекту метрик для ручного управления
+     Прямий доступ до об'єкта метрик для ручного керування
 
 ═══════════════════════════════════════════════════════════
   `)
