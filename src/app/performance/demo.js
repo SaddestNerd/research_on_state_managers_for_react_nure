@@ -199,24 +199,22 @@ class PerformanceDemo {
 		console.log('═══════════════════════════════════════════════════════════')
 		console.log('📍 КРОК 7: Експорт результатів')
 		console.log('═══════════════════════════════════════════════════════════')
-		console.log('\n')
-		console.log('📄 JSON дані для дипломної роботи:')
-		console.log('───────────────────────────────────────────────────────────')
+
 
 		const json = metrics.exportToJSON()
 		const preview = JSON.parse(json)
 
 		console.log('\nОсновні метрики:')
 		console.log(`  - State Manager: ${preview.stateManager}`)
-		console.log(`  - Час ініціалізації: ${preview.storeInitTime.toFixed(3)} мс`)
+		console.log(`  - Час ініціалізації: ${preview.storeInitTime} мс`)
 		console.log(
-			`  - Середній час action: ${preview.actions.stats.avg.toFixed(3)} мс`
+			`  - Середній час action: ${preview.actions.stats.avg} мс`
 		)
 		console.log(`  - Всього ре-рендерів: ${preview.rerenders.totalRerenders}`)
 		console.log(
 			`  - Пам\'ять: ${
 				preview.memory.latest
-					? (preview.memory.latest.usedJSHeapSize / 1024 / 1024).toFixed(2)
+					? (preview.memory.latest.usedJSHeapSize / 1024 / 1024)
 					: 'N/A'
 			} МБ`
 		)

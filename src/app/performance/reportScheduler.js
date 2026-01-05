@@ -40,36 +40,6 @@ class ReportScheduler {
 
 export const reportScheduler = new ReportScheduler()
 
-if (typeof window !== 'undefined') {
-	window.reportScheduler = reportScheduler
 
-	window.getPerformanceReport = () => reportScheduler.getReportNow()
-	window.startPerformanceReports = interval => reportScheduler.start(interval)
-	window.stopPerformanceReports = () => reportScheduler.stop()
-
-	console.log(`
-═══════════════════════════════════════════════════════════
-📊 СИСТЕМА ВИМІРЮВАННЯ ПРОДУКТИВНОСТІ АКТИВОВАНА
-═══════════════════════════════════════════════════════════
-
-Доступні команди в консолі:
-
-  🔹 window.getPerformanceReport()
-     Отримати поточний звіт про продуктивність Context API
-
-  🔹 window.startPerformanceReports(interval)
-     Запустити автоматичний вивід звітів
-     interval - інтервал у мілісекундах (за замовчуванням 30000)
-     Приклад: window.startPerformanceReports(10000) 
-
-  🔹 window.stopPerformanceReports()
-     Зупинити автоматичний вивід звітів
-
-  🔹 window.metrics
-     Прямий доступ до об'єкта метрик для ручного керування
-
-═══════════════════════════════════════════════════════════
-  `)
-}
 
 export default ReportScheduler

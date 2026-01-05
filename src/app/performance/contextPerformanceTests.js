@@ -615,46 +615,6 @@ export const contextPerformanceTests = new ContextPerformanceTests()
 
 if (typeof window !== 'undefined') {
 	window.contextPerformanceTests = contextPerformanceTests
-
-	console.log(`
-╔═══════════════════════════════════════════════════════════╗
-║  🧪 ТЕСТИ ПРОДУКТИВНОСТІ CONTEXT API                     ║
-╚═══════════════════════════════════════════════════════════╝
-
-Доступні методи:
-
-  🔹 window.contextPerformanceTests.testCartAddStateUpdate(cartContext, iterations)
-     Тест часу оновлення при додаванні в кошик
-
-  🔹 window.contextPerformanceTests.testBulkUpdateStateUpdate(updateFunction, iterations)
-     Тест масового оновлення (1000 операцій)
-
-  🔹 window.contextPerformanceTests.testStandardSession(durationMinutes)
-     Тест стандартної сесії (1 хв)
-
-  🔹 window.contextPerformanceTests.testLongLoadSession(durationMinutes)
-     Тест тривалого навантаження (5 хв)
-
-  🔹 window.contextPerformanceTests.testPersistenceRecovery(recoveryFunction, testData)
-     Тест відновлення з persisted store
-
-  🔹 window.contextPerformanceTests.testRollbackTime(rollbackFunction, stateSnapshot)
-     Тест часу відкату
-
-  🔹 window.contextPerformanceTests.testParallelTabsConflict()
-     Тест конфліктів при паралельних вкладках
-
-  🔹 window.contextPerformanceTests.testThroughput(actionFunction, durationSeconds)
-     Тест пропускної здатності
-
-  🔹 window.contextPerformanceTests.printReport()
-     Вивести повний звіт
-
-  🔹 window.contextPerformanceTests.exportResults(filename)
-     Експортувати результати у JSON
-
-═══════════════════════════════════════════════════════════
-  `)
 }
 
 export default ContextPerformanceTests
